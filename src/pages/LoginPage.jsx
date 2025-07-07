@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "https://your-backend-server.onrender.com"; 
+const BASE_URL = "https://seoyeon.store"; 
 function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
 
