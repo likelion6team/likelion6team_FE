@@ -1,25 +1,17 @@
-import React, { useState } from 'react';
-import PostHeader from '../components/PostHeader';
-import PostActions from '../components/PostActions';
+import React from 'react';
 import CommentSection from '../components/CommentSection';
+import PostActions from '../components/PostActions';
 
 export default function PostDetailPage() {
-  const [likes, setLikes] = useState(0);
-
-  const handleLike = () => {
-    setLikes(prev => prev + 1);
-  };
+  const postId = 1; 
 
   return (
-    <div style={{ maxWidth: '600px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-      <PostHeader
-        author="익명"
-        time="07/07 16:10"
-        title="안녕하세요 감사합니다"
-        content="잘있어요\n다시 만나요"
-      />
-      <PostActions likes={likes} onLike={handleLike} />
-      <CommentSection />
+    <div style={{ maxWidth: '600px', margin: '50px auto', padding: '20px' }}>
+      <h2>게시글 제목</h2>
+      <p>게시글 내용...</p>
+
+      <PostActions postId={postId} />
+      <CommentSection postId={postId} />
     </div>
   );
 }

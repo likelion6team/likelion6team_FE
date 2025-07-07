@@ -52,8 +52,6 @@ const PostForm = ({ onSubmit }) => {
               padding: '10px',
               borderRadius: '4px',
               border: '1px solid #ccc',
-              
-              
             }}
           />
         </div>

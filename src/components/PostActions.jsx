@@ -1,16 +1,32 @@
 import React, { useState } from 'react';
+import { addLike, removeLike } from '../api/apiService';
 
-export default function PostActions({ likes, onLike }) {
-  const [showComments, setShowComments] = useState(false);
+export default function PostActions({ postId }) {
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
 
-  const toggleComments = () => {
-    setShowComments(prev => !prev);
+  const handleLikeClick = async () => {
+    try {
+      if (!liked) {
+        await addLike(postId);
+        setLiked(true);
+        setLikeCount(likeCount + 1);
+      } else {
+        await removeLike(postId);
+        setLiked(false);
+        setLikeCount(Math.max(likeCount - 1, 0));
+      }
+    } catch (error) {
+      alert('좋아요 처리 실패');
+      console.error(error);
+    }
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '10px', marginTop: '20px' }}>
-      <button onClick={onLike}>❤️ 공감 {likes}</button>
-      <button onClick={toggleComments}>💬 댓글</button>
+    <div style={{ marginTop: '20px' }}>
+      <button onClick={handleLikeClick}>
+        {liked ? '❤️ 좋아요 취소' : '🤍 좋아요'} {likeCount}
+      </button>
     </div>
   );
 }
