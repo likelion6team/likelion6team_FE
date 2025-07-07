@@ -9,7 +9,7 @@ export default function Header() {
           <Link to="/" className="logo">DevTalk 💬</Link>
           <nav className="nav">
             <Link to="/">홈</Link>
-            <Link to="/write">글쓰기</Link>
+            <Link to="/post">글쓰기</Link>
             <Link to="/mypage">마이페이지</Link>
             <Link to="/login">로그인</Link>
           </nav>

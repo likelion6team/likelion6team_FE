@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 
 function LoginPage() {
-  const [isLogin, setIsLogin] = useState(true); // true → 로그인 / false → 회원가입
-
+  const [isLogin, setIsLogin] = useState(true); 
   return (
     <>
       <div className="login-container">
