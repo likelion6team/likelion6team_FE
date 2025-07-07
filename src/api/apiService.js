@@ -17,7 +17,6 @@ export const deleteComment = async (commentId) => {
   return response.data;
 };
 
-
 export const addLike = async (postId) => {
   const response = await axios.post(`${BASE_URL}/likes/${postId}`);
   return response.data;
