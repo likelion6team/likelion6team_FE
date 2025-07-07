@@ -4,6 +4,7 @@ import RootLayout from "./RootLayout";
 import Page from "./pages/Page"; 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MyPage from "./pages/MyPage";
+import PostPage from "./pages/PostPage";
 import LoginPage from "./pages/LoginPage";
 
 function App() {
