@@ -1,9 +1,8 @@
-// App.jsx
-
-import RootLayout from "./RootLayout";
-import Page from "./pages/Page"; 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MyPage from "./pages/MyPage";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import RootLayout from './RootLayout';
+import Page from './pages/Page';
+import PostPage from './pages/Postpage';        // ✅ 확인
+import MyPage from './pages/MyPage';
 
 function App() {
   return (
@@ -11,6 +10,7 @@ function App() {
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="/" element={<Page />} />
+          <Route path="/post" element={<PostPage />} />           {/* ✅ 반드시 필요 */}
           <Route path="/mypage" element={<MyPage />} />
         </Route>
       </Routes>

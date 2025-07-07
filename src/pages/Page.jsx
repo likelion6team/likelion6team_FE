@@ -1,5 +1,6 @@
 // src/pages/Page.jsx
 import React from "react";
+import { Link } from 'react-router-dom';
 
 function Page() {
   return (
@@ -21,9 +22,11 @@ function Page() {
           <p>작성자: jeongneung2052 | 6시간 전</p>
         </div>
 
-        <div className="button-area">
-          <button className="write-btn">✏️ 글쓰기</button>
-        </div>
+       <div className="button-area">
+  <Link to="/post">
+    <button className="write-btn">✏️ 글쓰기</button>
+  </Link>
+</div>
       </div>
 
       <style>{`
