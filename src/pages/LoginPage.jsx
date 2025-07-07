@@ -1,30 +1,62 @@
-// src/pages/LoginPage.jsx
 import React, { useState } from "react";
+import axios from "axios";
 
+const BASE_URL = "https://your-backend-server.onrender.com"; 
 function LoginPage() {
-  const [isLogin, setIsLogin] = useState(true); 
+  const [isLogin, setIsLogin] = useState(true);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const nickname = e.target.nickname?.value; 
+    try {
+      if (isLogin) {
+
+        const res = await axios.post(`${BASE_URL}/api/auths/login`, {
+          email,
+          password,
+        });
+        alert("로그인 성공!");
+        console.log("Login result:", res.data); 
+      } else {
+        
+        const res = await axios.post(`${BASE_URL}/api/users/sign-up`, {
+          email,
+          password,
+          nickname,
+        });
+        alert("회원가입 성공!");
+      }
+    } catch (err) {
+      alert("에러 발생: " + (err.response?.data?.message || err.message));
+    }
+  };
+
   return (
     <>
       <div className="login-container">
         <h1 className="login-title">{isLogin ? "🔐 로그인" : "📝 회원가입"}</h1>
         <p className="login-sub">
-          {isLogin ? "계정이 없다면 아래에서 가입해보세요!" : "이미 계정이 있다면 로그인하세요!"}
+          {isLogin
+            ? "계정이 없다면 아래에서 가입해보세요!"
+            : "이미 계정이 있다면 로그인하세요!"}
         </p>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           {!isLogin && (
             <label>
               닉네임
-              <input type="text" placeholder="별명 입력" required />
+              <input type="text" name="nickname" placeholder="별명 입력" required />
             </label>
           )}
           <label>
             이메일
-            <input type="email" placeholder="email@example.com" required />
+            <input type="email" name="email" placeholder="email@example.com" required />
           </label>
           <label>
             비밀번호
-            <input type="password" placeholder="비밀번호" required />
+            <input type="password" name="password" placeholder="비밀번호" required />
           </label>
 
           <button type="submit">{isLogin ? "로그인" : "회원가입"}</button>

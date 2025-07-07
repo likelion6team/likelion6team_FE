@@ -15,11 +15,13 @@ const PostPage = () => {
   };
 
   return (
-    <div style={{ maxWidth: '600px', margin: 'auto', padding: '2rem' }}>
+    <div style={{ maxWidth: '800px', padding: '2rem' }}>
       <PostForm onSubmit={handlePostSubmit} />
       <LikeButton />
       <CommentSection />
     </div>
+    
+
   );
 };
 

@@ -1,35 +1,35 @@
 import React, { useState } from 'react';
+import CommentForm from './CommentForm';
+import CommentList from './CommentList';
+import { createComment, deleteComment } from '../api/apiService';
 
-function CommentSection() {
-  const [comment, setComment] = useState('');
+export default function CommentSection({ postId }) {
   const [comments, setComments] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (comment.trim()) {
-      setComments([...comments, comment]);
-      setComment('');
+  const handleAddComment = async (content) => {
+    try {
+      const newComment = await createComment(postId, content);
+      setComments([newComment, ...comments]);
+    } catch (error) {
+      alert('댓글 작성 실패');
+      console.error(error);
+    }
+  };
+
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await deleteComment(commentId);
+      setComments(comments.filter(comment => comment.id !== commentId));
+    } catch (error) {
+      alert('댓글 삭제 실패');
+      console.error(error);
     }
   };
 
   return (
-    <div style={{ marginTop: '2rem' }}>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          placeholder="댓글을 입력하세요"
-          style={{ padding: '0.5rem', width: '70%' }}
-        />
-        <button type="submit" style={{ padding: '0.5rem' }}>등록</button>
-      </form>
-      <ul style={{ marginTop: '1rem' }}>
-        {comments.map((c, i) => (
-          <li key={i}>💬 {c}</li>
-        ))}
-      </ul>
+    <div style={{ marginTop: '20px' }}>
+      <CommentForm onAddComment={handleAddComment} />
+      <CommentList comments={comments} onDeleteComment={handleDeleteComment} />
     </div>
   );
 }
-
-export default CommentSection;
