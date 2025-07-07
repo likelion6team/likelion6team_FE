@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route element={<RootLayout />}>
           <Route path="/" element={<Page />} />
-          <Route path="/post" element={<PostPage />} />           {/* ✅ 반드시 필요 */}
+          <Route path="/post" element={<PostPage />} />      
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Route>
