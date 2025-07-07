@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 function Page() {
+
   return (
     <>
       <div className="page-container">
@@ -31,66 +32,88 @@ function Page() {
 
       <style>{`
         .page-container {
-          max-width: 800px;
-          margin: 40px auto;
-          padding: 20px;
+          max-width: 1200px;
+          margin: 60px auto;
+          padding: 40px 24px;
+          font-family: 'Segoe UI', sans-serif;
+          color: #1f2937;
         }
 
-        .page-title {
-          font-size: 2rem;
-          font-weight: bold;
-          margin-bottom: 8px;
-          color: #1e293b;
+        .intro-section {
+          margin-bottom: 40px;
+          text-align: left;
         }
 
-        .page-desc {
-          font-size: 1rem;
+        .title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+
+        .subtitle {
+          font-size: 1.2rem;
           color: #555;
-          margin-bottom: 30px;
+        }
+
+        .post-section {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
         }
 
         .post-card {
-          border: 1px solid #ddd;
-          border-radius: 8px;
-          padding: 16px;
-          margin-bottom: 20px;
-          background-color: #fafafa;
-          transition: 0.2s;
+          background-color: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 12px;
+          padding: 20px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          transition: all 0.2s ease;
         }
 
         .post-card:hover {
-          background-color: #f0f8ff;
-          cursor: pointer;
+          background-color: #f9fafb;
+          transform: translateY(-2px);
         }
 
         .post-card h2 {
           margin: 0 0 8px;
-          font-size: 1.2rem;
+          font-size: 1.25rem;
+          font-weight: 600;
         }
 
         .post-card p {
           margin: 0;
-          color: #666;
-          font-size: 0.9rem;
+          color: #6b7280;
+          font-size: 0.95rem;
         }
 
-        .button-area {
+        .write-btn-wrap {
           text-align: right;
-          margin-top: 30px;
+          margin-top: 40px;
         }
 
         .write-btn {
-          background-color: #2563eb;
+          background-color: #3b82f6;
           color: white;
           border: none;
-          padding: 10px 16px;
+          padding: 12px 20px;
           font-size: 1rem;
-          border-radius: 6px;
+          font-weight: 500;
+          border-radius: 8px;
           cursor: pointer;
         }
 
         .write-btn:hover {
-          background-color: #1d4ed8;
+          background-color: #2563eb;
+        }
+
+        @media (max-width: 768px) {
+          .title {
+            font-size: 2rem;
+          }
+          .post-card h2 {
+            font-size: 1.1rem;
+          }
         }
       `}</style>
     </>
