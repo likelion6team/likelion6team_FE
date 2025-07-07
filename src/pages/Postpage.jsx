@@ -1,6 +1,8 @@
 import React from 'react';
 import PostForm from '../post/Post.jsx';
 import { submitPost } from '../post/Post.js';
+import LikeButton from '../components/LikeButton';
+import CommentSection from '../components/CommentSection';
 
 const PostPage = () => {
   const handlePostSubmit = async (data) => {
@@ -13,8 +15,10 @@ const PostPage = () => {
   };
 
   return (
-    <div>
+    <div style={{ maxWidth: '600px', margin: 'auto', padding: '2rem' }}>
       <PostForm onSubmit={handlePostSubmit} />
+      <LikeButton />
+      <CommentSection />
     </div>
   );
 };
