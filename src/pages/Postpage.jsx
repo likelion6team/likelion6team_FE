@@ -4,7 +4,7 @@ import { submitPost } from '../post/Post.js';
 import LikeButton from '../components/LikeButton';
 import CommentSection from '../components/CommentSection';
 
-export default function PostPage() {
+export default function Postpage() {
   const handlePostSubmit = async (data) => {
     try {
       await submitPost(data);
@@ -26,6 +26,3 @@ export default function PostPage() {
   );
 }
 
-};
-
-export default PostPage;

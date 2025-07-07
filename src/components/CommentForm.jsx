@@ -13,7 +13,8 @@ const CommentForm = ({ onAddComment }) => {
     setContent('');
   };
 
-
+  // 🔧 return 추가함
+  return (
     <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
       <input
         type="text"
